@@ -1,0 +1,45 @@
+[CRATE_IFACE]
+# 创建子接口：1, 删除子接口：0，删除子接口失败则直接重启也可以恢复
+# 要运行程序这里必须为1
+crate_iface = 1
+iface_name = enp1s0
+
+[ReAuth]
+# enable_reauth ? yes : 1 ; no : 0
+portal_reauth = 0
+
+[GET_IP]
+# 动态还是静态遍历IP地址
+# 动态获取IP地址：1，静态获取IP地址：0 动态没做
+dynmaic_ip = 0
+# 静态IP地址只有当使用非动态才会启用
+# 静态IP地址，起始IP地址
+start_ip = 100.98.16.100
+# 静态IP地址，子网掩码
+static_mask = 255.255.255.0
+# 静态IP地址，默认网关
+static_gw = 100.98.16.254
+
+[PORTAL_SERVER_IP]
+portal_ip = 100.100.1.32
+
+[PORTAL_USER_NUM]
+# 用户数量
+portal_user_num = 1
+
+[PORTAL_USER_NAME]
+# 用户名共同部分
+portal_user_head = hx
+# 用户名后缀 后缀会一直增加和USE_NUM个数相同
+portal_user_tail = 1
+[PORTAL_USER_PASSWD]
+all_password = 123456
+
+[PORTAL_PORT]
+# 端口默认为80
+portal_port = 80
+
+[REDIRECT_IP]
+# 重定向IP
+redirect_ip = 1.2.3.4
+
