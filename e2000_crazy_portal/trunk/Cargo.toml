@@ -1,0 +1,37 @@
+[package]
+name = "e2000_crazy_portal"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "e2000_crazy_portal"
+path = "src/bin/main.rs"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ansi_term = "0.12.1"
+anyhow = "1.0.82"
+base64 = "0.22.1"
+fast-async-mutex = "0.6.7"
+hex = "0.4.3"
+hyper = "1.2.0"
+indicatif = "0.17.8"
+libc = "0.2.153"
+# rand = "0.8.5"
+reqwest = { version = "0.12.3", features = ["json"] }
+serde_json = "1.0.117"
+socket2 = "0.5.6"
+tokio = { version = "1.37.0", features = ["full"] }
+toml = "0.8.14"
+tracing = "0.1.40"
+tracing-subscriber = "0.3.18"
+url = "2.5.0"
+urlencoding = "2.1.3"
+
+[lib]
+name = "libs"
+path = "src/libs/mod.rs"
+
+# [target.x86_64-unknown-linux-gnu]
+# linker = "x86_64-linux-gnu-gcc"
+

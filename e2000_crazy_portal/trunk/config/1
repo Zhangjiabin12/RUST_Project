@@ -1,0 +1,155 @@
+# iptables -t mangle -nvL
+Chain PREROUTING (policy ACCEPT 122 packets, 6646 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 PORTALath0201  all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-in ath0201
+    0     0 PORTALath0101  all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-in ath0101
+    0     0 PORTALeth4.1678  all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-in eth4.1678
+    0     0 PORTALeth3.1678  all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-in eth3.1678
+    0     0 PORTALeth2.1678  all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-in eth2.1678
+    0     0 PORTALeth1.1678  all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-in eth1.1678
+    0     0 NAS_REPORT_STAINFO_ath0101  all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-in ath0101
+    0     0 NAS_REPORT_STAINFO_ath0201  all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-in ath0201
+    0     0 NAS_REPORT_STAINFO_eth1.1678  all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-in eth1.1678
+    0     0 NAS_REPORT_STAINFO_eth2.1678  all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-in eth2.1678
+    0     0 NAS_REPORT_STAINFO_eth3.1678  all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-in eth3.1678
+    0     0 NAS_REPORT_STAINFO_eth4.1678  all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-in eth4.1678
+
+Chain INPUT (policy ACCEPT 50 packets, 3766 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 50 packets, 3876 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain POSTROUTING (policy ACCEPT 50 packets, 3876 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 PORTAL_WL_DNS_ath0101  all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-out ath0101
+    0     0 PORTAL_WL_DNS_ath0201  all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-out ath0201
+
+Chain NAS_REPORT_STAINFO_ath0101 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            115.28.38.73         tcp dpt:8443 MARK set 0x6
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            115.28.38.73         tcp dpt:443 MARK set 0x6
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            115.28.38.73         tcp dpt:8080 MARK set 0x6
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            115.28.38.73         tcp dpt:80 MARK set 0x6
+
+Chain NAS_REPORT_STAINFO_ath0201 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            115.28.38.73         tcp dpt:8443 MARK set 0x6
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            115.28.38.73         tcp dpt:443 MARK set 0x6
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            115.28.38.73         tcp dpt:8080 MARK set 0x6
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            115.28.38.73         tcp dpt:80 MARK set 0x6
+
+Chain NAS_REPORT_STAINFO_eth1.1678 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain NAS_REPORT_STAINFO_eth2.1678 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain NAS_REPORT_STAINFO_eth3.1678 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain NAS_REPORT_STAINFO_eth4.1678 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain PORTAL_Aclath0101 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8443 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:443 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8080 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 MARK set 0x3
+    0     0 MARK       udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpts:67:68 MARK set 0x1
+    0     0 MARK       udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 MARK set 0x1
+
+Chain PORTAL_Aclath0201 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8443 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:443 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8080 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 MARK set 0x3
+    0     0 MARK       udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpts:67:68 MARK set 0x1
+    0     0 MARK       udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 MARK set 0x1
+
+Chain PORTAL_Acleth1.1678 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8443 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:443 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8080 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 MARK set 0x3
+    0     0 MARK       udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpts:67:68 MARK set 0x1
+    0     0 MARK       udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 MARK set 0x1
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            100.51.16.10         tcp dpt:8080 MARK set 0x1
+
+Chain PORTAL_Acleth2.1678 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8443 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:443 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8080 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 MARK set 0x3
+    0     0 MARK       udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpts:67:68 MARK set 0x1
+    0     0 MARK       udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 MARK set 0x1
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            100.51.16.10         tcp dpt:8080 MARK set 0x1
+
+Chain PORTAL_Acleth3.1678 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8443 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:443 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8080 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 MARK set 0x3
+    0     0 MARK       udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpts:67:68 MARK set 0x1
+    0     0 MARK       udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 MARK set 0x1
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            100.51.16.10         tcp dpt:8080 MARK set 0x1
+
+Chain PORTAL_Acleth4.1678 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8443 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:443 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8080 MARK set 0x3
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 MARK set 0x3
+    0     0 MARK       udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpts:67:68 MARK set 0x1
+    0     0 MARK       udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 MARK set 0x1
+    0     0 MARK       tcp  --  *      *       0.0.0.0/0            100.51.16.10         tcp dpt:8080 MARK set 0x1
+
+Chain PORTAL_WL_DNS_ath0101 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 NFQUEUE    udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:53 NFQUEUE num 49
+
+Chain PORTAL_WL_DNS_ath0201 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 NFQUEUE    udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:53 NFQUEUE num 65
+
+Chain PORTAL_WL_Host_ath0101 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 MARK       all  --  *      *       0.0.0.0/0            2.3.4.5              MARK set 0x1
+
+Chain PORTAL_WL_Host_ath0201 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 MARK       all  --  *      *       0.0.0.0/0            2.3.4.5              MARK set 0x1
+
+Chain PORTALath0101 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 PORTAL_Aclath0101  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 PORTAL_WL_Host_ath0101  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain PORTALath0201 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 PORTAL_Aclath0201  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 PORTAL_WL_Host_ath0201  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain PORTALeth1.1678 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 PORTAL_Acleth1.1678  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain PORTALeth2.1678 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 PORTAL_Acleth2.1678  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain PORTALeth3.1678 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 PORTAL_Acleth3.1678  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain PORTALeth4.1678 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 PORTAL_Acleth4.1678  all  --  *      *       0.0.0.0/0            0.0.0.0/0 
