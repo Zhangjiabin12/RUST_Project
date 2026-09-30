@@ -1,0 +1,32 @@
+[package]
+name = "crazy_ap"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "crazy_ap"
+path = "src/bin/main.rs"
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ansi_term = "0.12.1"
+anyhow = "1.0.81"
+byteorder = "1.5.0"
+futures = "0.3.30"
+hex = "0.4.3"
+indicatif = "0.17.8"
+libc = "0.2.153"
+rand = "0.8.5"
+serde = { version = "1.0", features = ["derive"] }
+socket2 = "0.5.6"
+tokio = { version = "1.36.0", features = ["full"] }
+toml = "0.8"
+tracing = "0.1.40"
+tracing-appender = "0.2"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+
+[lib]
+name = "lib"
+path = "src/lib/mod.rs"

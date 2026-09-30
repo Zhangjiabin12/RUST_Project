@@ -1,0 +1,69 @@
+[thread]
+# 每批AP之间的间隔（秒），配合 batch_size 控制上线速率
+# 例如 batch_size=10, interval=0.5 → 20 AP/s
+interval = 1
+
+[ap_batch]
+# 每批同时启动的 AP 数量（1=串行，10=每批10个并发） 根据PC能力设置，推荐10 不允许超过100
+batch_size = 20
+
+[socket]
+# AF_PACKET socket 缓冲区（字节），越大越能抗并发，会被内核上限截断
+rmem_max = 67108864   # 64MB 接收缓冲
+wmem_max = 16777216   # 16MB 发送缓冲
+
+[ac]
+mac = "cc:d8:1f:c9:80:34"
+backup_mac = "cc:d8:1f:c9:7e:c1"
+# 0:disable, 1:enable
+backup_enable = 0
+dest_ip = "2.255.255.253"
+dest_ip_backup = "2.255.255.254"
+# 控制端口
+control_port = 5246
+# 数据端口
+data_port = 5247
+# 物理口名称
+iface_name = "enp43s0"
+
+[ssid_mode]
+ssid = "open"
+mode = "open"
+
+[ap]
+nums = 6655
+# AP MAC 地址前缀（前 6 位十六进制，不含分隔符）
+# 必须为本地管理单播地址：首个字节的 bit0=0(单播) bit1=1(本地管理)
+# 合法首字节: x2, x6, xA, xE（如 02, 06, 0a, 0e, 26, 4a, ce...）
+# 每个 AP 占 4 个连续 MAC（AP + radio1 + radio2 + radio3），间隔 16
+mac_prefix = "ccd82f"
+# AP IP 前缀（4 位十六进制，默认 0200）
+ip_prefix = "0200"
+# AP WTP 序列号前缀（14 位十六进制 = 7 字节），每个 AP 依次累加 必须是偶数
+serial_prefix = "27003809000000"
+
+[sta]
+count = 0
+# STA MAC 前缀（2 位十六进制，首个字节，默认 02=本地管理单播）
+# 多台电脑同时运行时，每台设不同值避免冲突（如 02, 12, 22, 32...）
+mac_prefix = "04"
+# STA IP 前缀（2 位十六进制，首个字节，默认 04）
+ip_prefix = "05"
+# STA 上线每步超时（秒），默认 5
+timeout_secs = 60
+# STA 上线最大重试次数，默认 5
+max_retry = 5
+# STA 重试间隔（秒），默认 5
+retry_interval_secs = 30
+
+[keepalive]
+# Echo 报文发送间隔（秒），默认 30
+echo_interval_secs = 30
+# KeepAlive 报文发送间隔（秒），默认 15
+ka_interval_secs = 15
+# Echo/KeepAlive 共用最大重试次数（任一失败都累加），默认 3
+max_retry = 6
+
+
+
+

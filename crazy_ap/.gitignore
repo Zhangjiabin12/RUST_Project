@@ -1,0 +1,11 @@
+/target/
+*.o
+*.d
+*.rlib
+*.rmeta
+*.ll
+/logs/
+*.log
+*.log.*
+*.timestamp
+/trunk/
